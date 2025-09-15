@@ -6,7 +6,7 @@ import { PitchRecorder } from '../components/PitchRecorder';
 import { SoundscapeSelector } from '../components/SoundscapeSelector';
 import { AIResponseCard } from '../components/AIResponseCard';
 import { IntroductionForm } from '../components/IntroductionForm';
-import { useMiniKit } from '@coinbase/minikit';
+// import { useAuthenticate } from '@coinbase/onchainkit';
 
 type TabType = 'practice' | 'soundscapes' | 'feedback' | 'introductions';
 
@@ -14,7 +14,8 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<TabType>('practice');
   const [currentPitch, setCurrentPitch] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<any>(null);
-  const { user } = useMiniKit();
+  // const { user } = useAuthenticate();
+  const user = null; // TODO: Implement proper authentication
 
   const handlePitchRecorded = (pitchData: string) => {
     setCurrentPitch(pitchData);
@@ -36,18 +37,18 @@ export default function Home() {
                 <h1 className="text-2xl font-bold text-text-primary">PitchHarmony</h1>
                 <p className="text-sm text-text-secondary">Soundscapes for Investors</p>
               </div>
-              {user && (
+              {user ? (
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
                     <span className="text-white text-sm font-semibold">
-                      {user.displayName?.[0] || 'U'}
+                      {(user as any)?.displayName?.[0] || 'U'}
                     </span>
                   </div>
                   <span className="text-sm text-text-secondary">
-                    {user.displayName || 'User'}
+                    {(user as any)?.displayName || 'User'}
                   </span>
                 </div>
-              )}
+              ) : null}
             </div>
           </div>
         </header>
