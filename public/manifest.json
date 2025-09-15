@@ -20,7 +20,13 @@
       "https://pitchharmony.com/screenshot3.png"
     ],
     "primaryCategory": "productivity",
-    "tags": ["pitch", "ai", "founders", "investors", "productivity"],
+    "tags": [
+      "pitch",
+      "ai",
+      "founders",
+      "investors",
+      "productivity"
+    ],
     "heroImageUrl": "https://pitchharmony.com/hero.png",
     "tagline": "Tune Your Pitch, Amplify Your Credibility",
     "ogTitle": "PitchHarmony - Soundscapes for Investors",
