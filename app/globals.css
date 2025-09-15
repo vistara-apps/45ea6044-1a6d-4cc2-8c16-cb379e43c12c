@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: hsl(240 80% 50%);
+  --accent: hsl(30 80% 55%);
+  --bg: hsl(240 10% 98%);
+  --surface: hsl(0 0% 100%);
+  --text-primary: hsl(240 10% 20%);
+  --text-secondary: hsl(240 10% 40%);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--bg);
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-all duration-200 focus:outline-none focus:shadow-focus;
+  }
+  
+  .btn-secondary {
+    @apply bg-surface text-text-primary border border-gray-200 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-200 focus:outline-none focus:shadow-focus;
+  }
+  
+  .card {
+    @apply bg-surface rounded-lg shadow-card p-6;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary focus:shadow-focus transition-all duration-200;
+  }
+}
